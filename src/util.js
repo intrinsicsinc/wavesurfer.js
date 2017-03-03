@@ -91,6 +91,7 @@ WaveSurfer.util = {
             ajax.fireEvent('error', e);
         });
 
+        xhr.withCredentials = true;
         xhr.send();
         ajax.xhr = xhr;
         return ajax;
