@@ -251,9 +251,15 @@ WaveSurfer.Region = {
             });
         }
 
+        var symbolEl = document.createElement('span');
+        symbolEl.className = 'glyphicon glyphicon-trash';
+        symbolEl.setAttribute('aria-hidden', 'true');
+        symbolEl.style.top = '30%';
+
         this.element = this.wrapper.appendChild(regionEl);
+        regionEl.appendChild(symbolEl);
         this.updateRender();
-        this.bindEvents(regionEl);
+        this.bindEvents(regionEl, symbolEl);
     },
 
     formatTime: function (start, end) {
