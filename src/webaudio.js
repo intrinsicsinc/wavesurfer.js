@@ -23,7 +23,7 @@ WaveSurfer.WebAudio = {
         if (!WaveSurfer.WebAudio.offlineAudioContext) {
             WaveSurfer.WebAudio.offlineAudioContext = new (
                 window.OfflineAudioContext || window.webkitOfflineAudioContext
-            )(1, 2, sampleRate);
+            )(1, 2, 11025);
         }
         return WaveSurfer.WebAudio.offlineAudioContext;
     },

@@ -257,7 +257,7 @@ WaveSurfer.Region = {
         symbolEl.style.top = '30%';
 
         this.element = this.wrapper.appendChild(regionEl);
-        regionEl.appendChild(symbolEl);
+        this.deleteEl = regionEl.appendChild(symbolEl);
         this.updateRender();
         this.bindEvents(regionEl, symbolEl);
     },
@@ -380,6 +380,13 @@ WaveSurfer.Region = {
             e.preventDefault();
             my.fireEvent('dblclick', e);
             my.wavesurfer.fireEvent('region-dblclick', my, e);
+        });
+
+        this.deleteEl.addEventListener('click', function (e) {
+            e.stopPropagation();
+            e.preventDefault();
+            my.fireEvent('delete', e);
+            my.wavesurfer.fireEvent('region-delete', my, e);
         });
 
         /* Drag or resize on mousemove. */
